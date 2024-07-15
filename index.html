@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Website with Tabs</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .tab-content { display: none; }
-        .tabs input { display: none; }
-        .tabs label {
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tab {
+            display: none;
+        }
+        .tab-label {
             display: inline-block;
             margin: 0 10px;
             padding: 10px;
@@ -16,30 +19,40 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .tabs input:checked + label { background-color: #ccc; }
-        .tabs input:checked + label + .tab-content { display: block; }
+        .tab-label:hover {
+            background-color: #f0f0f0;
+        }
+        input[name="tabs"] {
+            display: none;
+        }
+        input[name="tabs"]:checked + .tab-label {
+            background-color: #ccc;
+        }
+        input[name="tabs"]:checked + .tab-label + .tab {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="tabs">
-        <input type="radio" id="tab1" name="tabs" checked>
-        <label for="tab1">Tab 1</label>
-        <div class="tab-content">
-            <h2>Content of Tab 1</h2>
-            <p>This is the content for the first tab.</p>
-        </div>
-        <input type="radio" id="tab2" name="tabs">
-        <label for="tab2">Tab 2</label>
-        <div class="tab-content">
-            <h2>Content of Tab 2</h2>
-            <p>This is the content for the second tab.</p>
-        </div>
-        <input type="radio" id="tab3" name="tabs">
-        <label for="tab3">Tab 3</label>
-        <div class="tab-content">
-            <h2>Content of Tab 3</h2>
-            <p>This is the content for the third tab.</p>
-        </div>
+    <input type="radio" name="tabs" id="tab1" checked>
+    <label for="tab1" class="tab-label">Tab 1</label>
+    <div class="tab">
+        <h2>Content of Tab 1</h2>
+        <p>This is the content for the first tab.</p>
+    </div>
+    
+    <input type="radio" name="tabs" id="tab2">
+    <label for="tab2" class="tab-label">Tab 2</label>
+    <div class="tab">
+        <h2>Content of Tab 2</h2>
+        <p>This is the content for the second tab.</p>
+    </div>
+    
+    <input type="radio" name="tabs" id="tab3">
+    <label for="tab3" class="tab-label">Tab 3</label>
+    <div class="tab">
+        <h2>Content of Tab 3</h2>
+        <p>This is the content for the third tab.</p>
     </div>
 </body>
 </html>
